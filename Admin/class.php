@@ -244,7 +244,7 @@ thead {
           </form>
         </div>
       </div>
-    <?php } else { ?>
+    <?php } else  ?>
       <div class="card">
         <div class="card-header py-2">
           <h3 class="card-title">Classes</h3>
@@ -267,15 +267,16 @@ thead {
               <tbody>
                 <?php
                 $count = 1;
-                $args = array(
-                  'type' => 'class',
-                  'status' => 'publish',
-                );
-                $classes = get_posts($args);
-                foreach ($classes as $class) { ?>
+                $sql = "SELECT * FROM posts where type = 'class' and status = 'publish' ";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                  // Output data of each row
+                  while($row = $result->fetch_assoc()) {
+                      ?>
                   <tr>
                     <td><?= $count++ ?></td>
-                    <td><?= $class->title ?></td>
+                    <td><?= $row["title"] ?></td>
                     <td>
                       <?php
                       $class_meta = get_metadata($class->id, 'section');
@@ -285,7 +286,11 @@ thead {
                       } ?>
                     </td>
                     <td><?= $class->publish_date ?></td>
-                    <td></td>
+                    <td>
+                    <a href="delete-streem.php?title=<?php echo $row['title'];?>" onClick="return deldata('<?php echo $row['title']; ?>');" class="delete-link">
+                    <button class='btn btn-danger'><i class='fa fa-trash'></i> Delete</button>
+                    </a>
+                    </td>
                   </tr>
                 <?php } ?>
               </tbody>

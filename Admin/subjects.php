@@ -6,6 +6,15 @@ if(empty($_SESSION['admin-username']))
     }
 
  ?>
+ <?php
+
+if(isset($_POST['submit']))
+{
+  $name = $_POST['name'];
+
+  $query = mysqli_query($conn, "INSERT INTO `subjects`(`name`) VALUES ('$name')") or die('DB error');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,75 +228,92 @@ thead {
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <p>&nbsp;</p>
-          <table width="1204" height="227" border="0" align="center">
-            <tr>
-              <td width="1090" height="184"><div class="card">
-                <div class="card-header">
-                <div class="card-footer">
-                  <a class="btn btn-primary" href="add-teacher.php">Add Subject</a>
-
+            <div class='col-lg-9'>
+              <div class="card">
+                <div class="card-header py-2">
+                  <h3 class="card-title">
+                  Subjects
+                  </h3>
+                  <div class="card-tools">
+                  </div>
                 </div>
-                 </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table width="85%" align="center" class="table table-bordered table-striped custom-table" id="example1">
-                    <thead>
-                    <th ><div align="center"><span class="style1">S.No</span></div></th>
-                    <th><div align="center"><span class="style1">Subject Name</span></div></th>
-                    <th><div align="center"><span class="style1">Added Date</span></div></th>
-                    <th><div align="center"><span class="style1">Action</span></div></th></tr>
-                    </thead>
-                      <div align="center"></div>
+                 <!-- /.card-header -->
+                    <div class="card-body">
+                      <table width="85%" align="center" class="table table-bordered table-striped custom-table" id="example1">
+                        <thead>
+                        <th ><div align="center"><span class="style1">S.No</span></div></th>
+                        <th><div align="center"><span class="style1">Subject Name</span></div></th>
+                        <th><div align="center"><span class="style1">Added Date</span></div></th>
+                        <th><div align="center"><span class="style1">Action</span></div></th></tr>
+                        </thead>
+                          <div align="center"></div>
 
-                    <tbody>
-                    <?php
-                  $data = $dbh->query("SELECT *  FROM subjects")->fetchAll();
-                  $cnt=1;
-                  foreach ($data as $row) {
-                    ?>
-                      <tr class="gradeX">
-                      <td><div align="center" class="style2"><?php echo $cnt;  ?></div></td>
-                       <td><div align="center" class="style2"><?php echo $row['name'];  ?></div></td>
-                       <td><div align="center" class="style2"><?php echo $row['date'];  ?></div></td>
-                       
-                       <td>
-                            <div align="right">
-                                <div class="btn-group" role="group" aria-label="Edit and Delete Buttons">
-                                    <a href="delete_teacher.php?id=<?php echo $row['id'];?>" onClick="return deldata('<?php echo $row['name']; ?>');" class="delete-link">
-                                        <button class='btn btn-danger'><i class='fa fa-trash'></i> Delete</button>
-                                    </a>
+                        <tbody>
+                        <?php
+                      $data = $dbh->query("SELECT *  FROM subjects")->fetchAll();
+                      $cnt=1;
+                      foreach ($data as $row) {
+                        ?>
+                          <tr class="gradeX">
+                          <td><div align="center" class="style2"><?php echo $cnt;  ?></div></td>
+                          <td><div align="center" class="style2"><?php echo $row['name'];  ?></div></td>
+                          <td><div align="center" class="style2"><?php echo $row['date'];  ?></div></td>
+                          
+                          <td>
+                                <div align="right">
+                                    <div class="btn-group" role="group" aria-label="Edit and Delete Buttons">
+                                        <a href="delete-subject.php?id=<?php echo $row['id'];?>" onClick="return deldata('<?php echo $row['name']; ?>');" class="delete-link">
+                                            <button class='btn btn-danger'><i class='fa fa-trash'></i> Delete</button>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <?php $cnt=$cnt+1;} ?>
-                    </tbody>
-                    <tfoot>
-                    </tfoot>
-                  </table>
+                            </td>
+                        </tr>
+                        <?php $cnt=$cnt+1;} ?>
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                      </table>
 
-                </div>
-                <!-- /.card-body -->
+                    </div>
+                    <!-- /.card-body -->
+                  <!-- </div> -->
+                    <table width="392" border="0" align="right">
+                      <tr>
+                        <td width="386"><div class="card-footer"></div></td>
+                      </tr>
+                    </table>
+                    <p>&nbsp;</p>
+                  </td>
+                </tr>
+              </table>
               </div>
-                <table width="392" border="0" align="right">
-                  <tr>
-                    <td width="386"><div class="card-footer">
-                </div></td>
-                  </tr>
-                </table>
-                <p>&nbsp;</p>
-
-              </td>
-            </tr>
-
-          </table>
-          <p>
-            <!-- /.card -->
-          </p>
+            </div> 
+            <div class="col-lg-3">
+              <!-- Info boxes -->
+              <div class="card">
+                <div class="card-header py-2">
+                  <h3 class="card-title">
+                    Add New Subject
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <form action="" method="POST">
+                    <div class="form-group">
+                      <label for="name">Subject Name</label>
+                      <input type="text" name="name" placeholder="Enter Subject Name" required class="form-control">
+                    </div>
+                    <button name="submit" class="btn btn-success float-right">
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
         </div>
           <!-- /.col -->
-    </div>
+      </div>
+    </section>
         <!-- /.row -->
   </div>
       <!-- /.container-fluid --><!-- /.content -->

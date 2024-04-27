@@ -82,6 +82,19 @@ thead {
         color: white; /* Set text color to white for better contrast */
 }
 </style>
+<script type="text/javascript">
+		function deldata(title){
+if(confirm("ARE YOU SURE YOU WISH TO DELETE " + " " + title + " " + " FROM THE DATABASE?"))
+{
+return  true;
+}
+else {return false;
+}
+
+}
+
+</script>
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -221,10 +234,10 @@ thead {
                                       <td><?= $count++ ?></td>
                                       <td><?= $row["title"] ?></td>
                                       <td>
-                                          <?php
-                                          // Generate delete link
-                                          echo "<a href='delete/del_section.php?id=" . $row["id"] . "' onclick='return confirm(\"Are you sure you want to delete?\");'> <button class='btn btn-danger'><i class='fa fa-trash'></i> Delete</button></a>";
-                                          ?>
+                                      <a href="delete-streem.php?title=<?php echo $row['title'];?>" onClick="return deldata('<?php echo $row['title']; ?>');" class="delete-link">
+                                      <button class='btn btn-danger'><i class='fa fa-trash'></i> Delete</button>
+                                      </a>
+                                         
                                       </td>
                                   </tr>
                                   <?php
