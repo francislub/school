@@ -1,0 +1,248 @@
+﻿/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
+.form-body {
+    background-color: unset;
+}
+
+.img-holder {
+    width: 700px;
+    min-height: unset;
+    background-image: -o-linear-gradient(45deg, #360033, #0b8793);
+    background-image: linear-gradient(45deg, #360033, #0b8793);
+    padding: 0;
+    text-align: left;
+}
+
+.form-holder {
+    margin-left: 700px;
+    position: relative;
+}
+
+.img-holder .info-holder {
+    top: 280px;
+    padding: 60px;
+}
+
+.website-logo {
+    display: none;
+    top: 15px;
+    left: unset;
+    width: 700px;
+    text-align: center;
+}
+
+.login, .instruction {
+    display: none;
+}
+
+.aa {
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center center;
+    background-image: url("../image/WAEC.png");
+    min-height: unset;
+}
+
+.bb {
+    background-image: -o-linear-gradient(45deg, #360033, #0b8793);
+    background-image: linear-gradient(45deg, #360033, #0b8793);
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    content: "";
+    display: block;
+    background-repeat: repeat-x;
+    opacity: 0.9;
+    min-height: unset;
+}
+
+.img-holder .info-holder p {
+    padding-right: 0
+}
+
+.img-holder .info-holder img {
+    width: 40%;
+}
+
+.form-content .form-items {
+    max-width: 400px;
+    text-align: unset;
+    overflow: auto;
+}
+
+.img-holder .footer {
+    z-index: 10
+}
+
+.form-holder .form-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: unset;
+    padding: 50px;
+    height: 100%;
+}
+
+.card-header {
+    background-color: unset;
+}
+
+.company-name {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.company-name-inverse, .company-name {
+    font-size: 2.2rem;
+}
+
+.form-holder .aa, .form-holder .bb {
+    background: white;
+}
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+    /* When moving the mouse over the close button */
+    .closebtn:hover {
+        color: black;
+    }
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+    /* When moving the mouse over the close button */
+    .closebtn:hover {
+        color: black;
+    }
+
+input.name {
+    text-transform: capitalize;
+}
+
+::-webkit-input-placeholder {
+    text-transform: none;
+}
+
+:-moz-placeholder {
+    text-transform: none;
+}
+
+::-moz-placeholder {
+    text-transform: none;
+}
+
+:-ms-input-placeholder {
+    text-transform: none;
+}
+
+
+@media(max-width: 1024px) {
+    .img-holder {
+        width: 600px;
+    }
+
+    .form-holder {
+        margin-left: 600px;
+    }
+
+    .website-logo {
+        display: block;
+        width: 600px;
+    }
+
+    .company-name, .page-title {
+        display: none;
+    }
+
+    .company-name-inverse, .company-name {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .form-holder {
+        margin-left: 0;
+        display: none;
+    }
+
+    .img-holder {
+        display: initial;
+        width: 100%;
+        overflow-y: scroll;
+    }
+
+        .img-holder .info-holder {
+            top: 55%;
+            padding: 20px;
+        }
+
+    .login, .instruction {
+        display: initial;
+    }
+
+    .website-logo {
+        display: block;
+        width: 100%;
+    }
+
+    .page-title-inverse, .page-title {
+        font-size: 1.8rem;
+    }
+
+    .form-holder .aa {
+        background-image: url("../image/WAEC.png");
+    }
+
+    .form-holder .bb {
+        background-image: -o-linear-gradient(45deg, #360033, #0b8793);
+        background-image: linear-gradient(45deg, #360033, #0b8793);
+    }
+}

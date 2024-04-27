@@ -1,0 +1,37 @@
+﻿/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
+.form-holder .aa {
+    background-image: url(../image/WAEC.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.form-holder .bb {
+    background-image: -o-linear-gradient(45deg, #360033, #0b8793);
+    background-image: linear-gradient(45deg, #360033, #0b8793);
+}
+
+.form-holder {
+    margin-left: 0;
+    position: relative;
+}
+
+
+@media (max-width: 992px) {
+    .form-holder {
+        margin-left: 0;
+        display: initial;
+    }
+
+    .footer {
+        z-index:100;
+    }
+
+}
+
+/*@media (max-width: 500px) {
+    div.form-items {
+        margin-top: -50% !important;
+    }
+}*/

@@ -1,0 +1,55 @@
+﻿/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
+
+.form-holder .form-content {
+    padding: 0;
+}
+
+.form-content .form-items {
+    max-width: unset;
+}
+
+#g-recaptcha-response {
+    display: block !important;
+    position: absolute;
+    margin: -78px 0 0 0 !important;
+    width: 302px !important;
+    height: 76px !important;
+    z-index: -999999;
+    opacity: 0;
+}
+
+.grecaptcha-badge {
+    z-index: 100000;
+}
+
+.form-group .help-block {
+    color: red;
+    text-align: left;
+}
+
+.form-group.issue .help-block, .form-group.issue .help-inline {
+    color: #FF8D60;
+}
+
+.form-group.error .help-block, .form-group.issue .help-inline {
+    color: #d9534f;
+}
+
+.form-group.error input, .form-group.error select, .form-group.error textarea {
+    color: #d9534f;
+    border-color: #d9534f;
+}
+
+.form-group.issue input, .form-group.issue select, .form-group.issue textarea {
+    color: #FF8D60;
+    border-color: #FF8D60;
+}
+
+@media (max-width: 992px) {
+
+
+    /*.footer {
+        height: 100px !important;
+    }*/
+}
