@@ -208,26 +208,33 @@ thead {
 
                     <tbody>
                       <?php
+                      // SQL query to select all sections
                       $count = 1;
-                      $args = array(
-                        'type' => 'section',
-                        'status' => 'publish',
-                      );
-                      // $sections = get_posts($args);
-                      foreach($sections as $section) {?>
-                      <tr>
-                        <td><?=$count++?></td>
-                        <td><?=$section->title?></td>
-                        <td>
-                        <?php
-                        //  echo "<a href='delete/del_section.php?id=" . $count["id"] . "' onclick='return confirm(\"Are you sure you want to delete?\");'> <button class='btn btn-danger'><i class='fa fa-trash'></i> Delete</button></a>";
-                        ?>
-                         </td>
-                      </tr>
+                          $sql = "SELECT * FROM posts where type = 'section'";
+                          $result = $conn->query($sql);
 
-                      <?php } ?>
-
-                    </toby>
+                          if ($result->num_rows > 0) {
+                              // Output data of each row
+                              while($row = $result->fetch_assoc()) {
+                                  ?>
+                                  <tr>
+                                      <td><?= $count++ ?></td>
+                                      <td><?= $row["title"] ?></td>
+                                      <td>
+                                          <?php
+                                          // Generate delete link
+                                          echo "<a href='delete/del_section.php?id=" . $row["id"] . "' onclick='return confirm(\"Are you sure you want to delete?\");'> <button class='btn btn-danger'><i class='fa fa-trash'></i> Delete</button></a>";
+                                          ?>
+                                      </td>
+                                  </tr>
+                                  <?php
+                              }
+                          } else {
+                              echo "0 results";
+                          }
+                          $conn->close();
+                          ?>
+                      </tbody>
                   </table>
                 </div>
               </div>
